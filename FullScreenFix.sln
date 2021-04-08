@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullscreenFixer", "FullScreenFix\FullscreenFixer.csproj", "{255ACCC4-ED0F-479B-A1DA-295533C62581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvisibleForm", "InvisibleForm\InvisibleForm.csproj", "{2D2A91B7-5F4D-46A3-899E-0798456FAFEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{255ACCC4-ED0F-479B-A1DA-295533C62581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255ACCC4-ED0F-479B-A1DA-295533C62581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255ACCC4-ED0F-479B-A1DA-295533C62581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255ACCC4-ED0F-479B-A1DA-295533C62581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2A91B7-5F4D-46A3-899E-0798456FAFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2A91B7-5F4D-46A3-899E-0798456FAFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2A91B7-5F4D-46A3-899E-0798456FAFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2A91B7-5F4D-46A3-899E-0798456FAFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92CD4971-894F-4741-A8C3-868381B22586}
+	EndGlobalSection
+EndGlobal
