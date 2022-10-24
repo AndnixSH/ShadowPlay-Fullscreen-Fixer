@@ -12,6 +12,7 @@ namespace VIdeoFreezeFix
         // add exe file in local appdata
         string docspath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Invisible Form";
         byte[] file1 = FullscreenFixer.Properties.Resources.Invisible_Form;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,11 +22,12 @@ namespace VIdeoFreezeFix
                 addStartup.Enabled = false;
                 removeStartup.Enabled = true;
             }
-            if (!File.Exists(startuppath + @"\Invisible Form.exe"))
+            else
             {
                 addStartup.Enabled = true;
                 removeStartup.Enabled = false;
             }
+
             // get process name "Invisible Form"
             foreach (var process in Process.GetProcessesByName("Invisible Form"))
             {
@@ -33,6 +35,7 @@ namespace VIdeoFreezeFix
                 disableFloat.Enabled = true;
                 removeStartup.Enabled = false;
                 lblProcess.Visible = true;
+                disableFormLbl.Visible = true;
             }
         }
         // enable button
@@ -42,13 +45,14 @@ namespace VIdeoFreezeFix
             {
                 Directory.CreateDirectory(docspath);
             }
-            
+
             File.WriteAllBytes(docspath + @"\Invisible Form.exe", file1);
             System.Diagnostics.Process.Start(docspath + @"\Invisible Form.exe");
             enableFloat.Enabled = false;
             disableFloat.Enabled = true;
             lblProcess.Visible = true;
             removeStartup.Enabled = false;
+            disableFormLbl.Visible = true;
         }
         // disable button
         private void disableBtn_Click(object sender, EventArgs e)
@@ -59,6 +63,7 @@ namespace VIdeoFreezeFix
                 enableFloat.Enabled = true;
                 disableFloat.Enabled = false;
                 lblProcess.Visible = false;
+                disableFormLbl.Visible = false;
                 if (File.Exists(startuppath + @"\Invisible Form.exe"))
                 {
                     removeStartup.Enabled = true;
@@ -68,7 +73,7 @@ namespace VIdeoFreezeFix
         // add file in startup
         private void addStartup_Click(object sender, EventArgs e)
         {
-            if (Directory.Exists(startuppath))
+            try
             {
                 try
                 {
@@ -82,7 +87,7 @@ namespace VIdeoFreezeFix
                     MessageBox.Show(ex.Message);
                 }
             }
-            else
+            catch
             {
                 MessageBox.Show("There was an error adding the file into startup folder. Please run the tool as administrator and try again");
             }
@@ -90,24 +95,22 @@ namespace VIdeoFreezeFix
         // remove file from startup
         private void removeStartup_Click(object sender, EventArgs e)
         {
-            if (File.Exists(startuppath + @"\Invisible Form.exe"))
+            try
             {
-                File.Delete(startuppath + @"\Invisible Form.exe");
-                MessageBox.Show("Removed!");
-                addStartup.Enabled = true;
-                removeStartup.Enabled = false;
+                if (File.Exists(startuppath + @"\Invisible Form.exe"))
+                {
+                    File.Delete(startuppath + @"\Invisible Form.exe");
+                    MessageBox.Show("Removed!");
+                    addStartup.Enabled = true;
+                    removeStartup.Enabled = false;
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("File not found");
+                MessageBox.Show("There was an error adding the file into startup folder. Please run the tool as administrator and try again");
             }
         }
-        // about
-        private void aboutBtn_Click(object sender, EventArgs e)
-        {
-            About aform = new About();
-            aform.Show();
-        }
+
         // exit
         private void exitBtn_Click(object sender, EventArgs e)
         {
